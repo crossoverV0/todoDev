@@ -1,0 +1,13 @@
+<div class="block fixed h-11 w-full px-14 top-8">
+   <div class="grid grid-cols-6 gap-4 h-full w-full z-50 bg-zinc-800 bg-opacity-20 drop-shadow-xl backdrop-blur-lg rounded">
+      <div class="col-span-1">
+         <ng-content select="[tabs]"></ng-content>
+      </div>
+      <div class="col-span-4">
+         <ng-content select="[center]"></ng-content>
+      </div>
+      <div >
+         <ng-content select="[settings]"></ng-content>
+      </div>
+   </div>
+</div>
