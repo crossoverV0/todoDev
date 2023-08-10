@@ -11,6 +11,4 @@ import { RouterLink } from '@angular/router';
   viewProviders: [provideIcons({ ionCheckbox, ionCheckboxOutline, ionGridOutline })],
   templateUrl: './header.component.html'
 })
-export class HeaderComponent {
-  @Input() q: number = 0
-}
+export class HeaderComponent {}
