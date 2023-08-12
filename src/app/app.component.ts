@@ -1,7 +1,7 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { ionGridOutline, ionTimeOutline } from '@ng-icons/ionicons';
+import { ionGrid, ionGridOutline, ionTime, ionTimeOutline } from '@ng-icons/ionicons';
 import { filter, map } from 'rxjs';
 import { HeaderComponent } from "./components/organisms/header/header.component";
 
@@ -14,14 +14,14 @@ import { HeaderComponent } from "./components/organisms/header/header.component"
         <ng-icon
           routerLink="/"
           class="cursor-pointer hover:scale-110 active:scale-90 transition duration-150 ease-in-out drop-shadow-xl" 
-          name="ionTimeOutline" 
+          [name]="currentRoute() === '/' ? 'ionTime' : 'ionTimeOutline'" 
           [size]="currentRoute() === '/' ? '1.4rem' : '1.3rem'" 
           [color]="currentRoute() === '/' ? '#F5F5F5' : '#949596'"
         ></ng-icon>
         <ng-icon
           routerLink="/historico" 
           class="cursor-pointer hover:scale-110 active:scale-90 transition duration-150 ease-in-out" 
-          name="ionGridOutline" 
+          [name]="currentRoute() === '/historico' ? 'ionGrid' : 'ionGridOutline'" 
           [size]="currentRoute() === '/historico' ? '1.4rem' : '1.3rem'" 
           [color]="currentRoute() === '/historico' ? '#F5F5F5' : '#949596'"
         ></ng-icon>
@@ -31,7 +31,7 @@ import { HeaderComponent } from "./components/organisms/header/header.component"
       <router-outlet></router-outlet>
     </div>
   `,
-  viewProviders: [provideIcons({ ionGridOutline, ionTimeOutline })],
+  viewProviders: [provideIcons({ ionGridOutline, ionTimeOutline, ionTime, ionGrid})],
   imports: [NgIconComponent, RouterOutlet, HeaderComponent, RouterLink]
 })
 export class AppComponent implements OnInit{
