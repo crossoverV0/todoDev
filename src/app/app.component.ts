@@ -1,9 +1,9 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
-import { Router, RouterLink, RouterOutlet, NavigationEnd  } from '@angular/router';
-import { HeaderComponent } from "./components/organisms/header/header.component";
+import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { ionGridOutline, ionTimeOutline } from '@ng-icons/ionicons';
 import { filter, map } from 'rxjs';
+import { HeaderComponent } from "./components/organisms/header/header.component";
 
 @Component({
   standalone: true,
@@ -13,12 +13,12 @@ import { filter, map } from 'rxjs';
       <div tabs class="flex items-center h-full gap-3 px-6">
         <ng-icon
           routerLink="/"
-          class="cursor-pointer hover:scale-110 active:scale-90 transition duration-150 ease-in-out" 
+          class="cursor-pointer hover:scale-110 active:scale-90 transition duration-150 ease-in-out drop-shadow-xl" 
           name="ionTimeOutline" 
           [size]="currentRoute() === '/' ? '1.4rem' : '1.3rem'" 
           [color]="currentRoute() === '/' ? '#F5F5F5' : '#949596'"
         ></ng-icon>
-        <ng-icon 
+        <ng-icon
           routerLink="/historico" 
           class="cursor-pointer hover:scale-110 active:scale-90 transition duration-150 ease-in-out" 
           name="ionGridOutline" 
