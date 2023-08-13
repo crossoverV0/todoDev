@@ -13,21 +13,21 @@ import { HeaderComponent } from "./components/organisms/header/header.component"
       <div tabs class="flex items-center h-full gap-3 px-6">
         <ng-icon
           routerLink="/"
-          class="cursor-pointer hover:scale-110 active:scale-90 transition duration-150 ease-in-out drop-shadow-xl" 
-          [name]="currentRoute() === '/' ? 'ionTime' : 'ionTimeOutline'" 
+          class="cursor-pointer hover:scale-110 active:scale-90 transition duration-150 ease-in-out drop-shadow-xl"
+          [name]="'ionTimeOutline'" 
           [size]="currentRoute() === '/' ? '1.4rem' : '1.3rem'" 
-          [color]="currentRoute() === '/' ? '#F5F5F5' : '#949596'"
+          [color]="currentRoute() === '/' ? '#d897f3' : '#473350'"
         ></ng-icon>
         <ng-icon
           routerLink="/historico" 
           class="cursor-pointer hover:scale-110 active:scale-90 transition duration-150 ease-in-out" 
-          [name]="currentRoute() === '/historico' ? 'ionGrid' : 'ionGridOutline'" 
+          [name]="'ionGridOutline'" 
           [size]="currentRoute() === '/historico' ? '1.4rem' : '1.3rem'" 
-          [color]="currentRoute() === '/historico' ? '#F5F5F5' : '#949596'"
+          [color]="currentRoute() === '/historico' ? '#d897f3' : '#473350'"
         ></ng-icon>
       </div>
     </app-header>
-    <div class="px-14 bg-dark-1 pt-20 min-h-screen">
+    <div class="px-14 pt-20 min-h-screen" style="background-color: #0a0118;">
       <router-outlet></router-outlet>
     </div>
   `,
