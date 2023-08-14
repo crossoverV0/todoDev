@@ -1,4 +1,4 @@
-<ng-container steps.controls.length > 0">
+<ng-container *ngIf="steps.controls.length > 0">
    <header class="flex justify-end my-4">
       <button 
          class="bg-zinc-500 bg-opacity-20 flex justify-center items-center rounded w-12 h-8  active:scale-90 transition duration-150 ease-in-out"
@@ -23,7 +23,7 @@
             class="ease-in duration-700 w-full bg-zinc-800 hover:bg-zinc-700 hover:bg-opacity-20 bg-opacity-20 h-16 rounded
             px-4 flex items-center"
          >
-            <div class="flex gap-3 w-3/4" [formGroupName]="i">
+            <div class="flex gap-3 w-4/5" [formGroupName]="i">
                <ng-icon
                   class="cursor-pointer hover:scale-110 active:scale-90 transition duration-150 ease-in-out" 
                   [name]="stepForm.get('done')?.value ? 'ionCheckbox' : 'ionSquareOutline'"
@@ -41,8 +41,9 @@
                >
             </div>
 
-            <div class="flex justify-end w-full px-7">
+            <div class="flex justify-end w-1/5 px-7">
                <ng-icon
+                  *ngIf="steps.controls.length > 1"
                   class="cursor-pointer hover:scale-110 active:scale-90 transition duration-150 ease-in-out" 
                   [name]="'ionTrashOutline'"
                   [color]="'#d897f3'"
