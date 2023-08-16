@@ -22,18 +22,23 @@ export class TodoListComponent implements OnInit{
       return this.formGroup.controls["steps"] as FormArray;
    }
 
-	ngOnInit(): void {
-		this.formGroup = this.getForm()
-		this.verifySteps()
+	@HostListener('window:beforeunload', ['$event'])
+	beforeUnload($event: any): void {
+		return this.logBeforeUnload();
 	}
 
-	verifySteps(){
+	ngOnInit(): void {
+		this.formGroup = this.#getForm()
+		this.#verifySteps()
+	}
+
+	#verifySteps(){
 		if(this.steps.controls.length === 0){
 			this.addStep()
 		}
 	}
 
-	getForm(){
+	#getForm(){
 		return this.#builder.group({steps: this.#builder.array([])})
 	}
 
@@ -53,18 +58,12 @@ export class TodoListComponent implements OnInit{
 	switch(index?: number){
 		const step = this.steps.at(index as number) as FormGroup
 		step.get('done')?.patchValue(!(step.get('done')?.value))
-		console.log(this.steps.getRawValue())
 	}
 
-	editStepTitle(){
-		console.log('editStepTitle')
+	onInputKeyDown(e: any, index: number){
+		if (e.key === 'Backspace' && index > 0 && !!!this.steps.controls[index]?.value?.title) this.removeStep(index)
 	}
 
 	logBeforeUnload(){
-	}
-
-	@HostListener('window:beforeunload', ['$event'])
-	beforeUnload($event: any): void {
-		return this.logBeforeUnload();
 	}
 }
