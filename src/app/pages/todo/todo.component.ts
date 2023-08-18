@@ -8,7 +8,7 @@ import { AutofocusDirective } from 'src/app/core/diretives/autofocus.directive';
 @Component({
 	selector: 'app-todo-list',
 	standalone: true,
-	templateUrl: './todo-list.component.html',
+	templateUrl: './todo.component.html',
 	viewProviders: [provideIcons({ionCheckbox, ionSquareOutline, ionAdd, ionTrashOutline})],
 	imports: [NgFor, NgIf, NgIconComponent, ReactiveFormsModule, AutofocusDirective],
 	changeDetection: ChangeDetectionStrategy.OnPush
