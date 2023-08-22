@@ -6,9 +6,9 @@ import { ionAdd, ionCheckbox, ionSquareOutline, ionTrashOutline } from '@ng-icon
 import { AutofocusDirective } from 'src/app/core/diretives/autofocus.directive';
 
 @Component({
-	selector: 'app-todo-list',
+	selector: 'app-todo',
 	standalone: true,
-	templateUrl: './todo-list.component.html',
+	templateUrl: './todo.component.html',
 	viewProviders: [provideIcons({ionCheckbox, ionSquareOutline, ionAdd, ionTrashOutline})],
 	imports: [NgFor, NgIf, NgIconComponent, ReactiveFormsModule, AutofocusDirective],
 	changeDetection: ChangeDetectionStrategy.OnPush
@@ -29,7 +29,6 @@ export class TodoListComponent implements OnInit{
 
 	ngOnInit(): void {
 		this.formGroup = this.#getForm()
-		this.#verifySteps()
 	}
 
 	#verifySteps(){
@@ -39,7 +38,7 @@ export class TodoListComponent implements OnInit{
 	}
 
 	#getForm(){
-		return this.#builder.group({steps: this.#builder.array([])})
+		return this.#builder.group({steps: this.#builder.array([]), taskTitle: []})
 	}
 
 	addStep(){

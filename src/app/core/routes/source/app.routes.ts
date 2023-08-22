@@ -6,11 +6,11 @@ export const APP_ROUTES: Routes = [
       children: [
          {
             path: '',
-            loadComponent: () => import('./pages/todo-list/todo-list.component').then((c) => c.TodoListComponent)
+            loadComponent: () => import('../../../pages/todo/todo.component').then((c) => c.TodoListComponent)
          },
          {
             path: 'historico',
-            loadComponent: () => import('./pages/history/history.component').then((c) => c.HistoryComponent)
+            loadComponent: () => import('../../../pages/history/history.component').then((c) => c.HistoryComponent)
          }
       ]
    }

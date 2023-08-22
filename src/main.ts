@@ -7,7 +7,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter, withInMemoryScrolling } from '@angular/router';
 
 import { AppComponent } from './app/app.component';
-import { APP_ROUTES } from './app/app.routes';
+import { APP_ROUTES } from './app/core/routes/source/app.routes';
 
 registerLocaleData(ptBr);
 
