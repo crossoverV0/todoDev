@@ -1,7 +1,7 @@
-import { IStep } from "./step";
+import { ISteps } from "./step";
 
 export interface ITask {
    title: string,
    done: boolean,
-   steps: IStep[]
+   steps: ISteps[]
 }

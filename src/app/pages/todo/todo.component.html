@@ -2,9 +2,10 @@
    <header class="flex justify-between	 my-4" [formGroup]="formGroup">
       <input 
          myAutofocus
+         [disabled]="true"
          formControlName="taskTitle"
          (keyup.enter)="addStep()"
-         type="text" 
+         type="text"
          style="border: none; outline: none; caret-color: #d897f3;"
          placeholder="Título"
          class="text-slate-50 w-3/4	 text-xl bg-transparent	pl-1 py-2"

@@ -11,3 +11,16 @@ export interface IknownStep extends ISteps{
 }
 
 export type TOptionalStep = Partial<ISteps>
+
+
+interface User{
+   nome: string
+   iadade?: number
+   id: string
+   senha: string
+}
+
+interface CreatUserDto{
+   nome: string,
+   senha: string
+}
