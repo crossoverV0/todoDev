@@ -1,71 +1,76 @@
-<ng-container >
-   <header class="flex justify-between	 my-4" [formGroup]="formGroup">
-      <input 
-         myAutofocus
-         [disabled]="true"
-         formControlName="taskTitle"
-         (keyup.enter)="addStep()"
-         type="text"
-         style="border: none; outline: none; caret-color: #d897f3;"
-         placeholder="Título"
-         class="text-slate-50 w-3/4	 text-xl bg-transparent	pl-1 py-2"
-      >
-      <button
-         *ngIf="steps.controls.length > 1"
-         class="bg-zinc-600 bg-opacity-20 flex justify-center items-center rounded w-12 h-8  
-         active:scale-90 transition duration-150 ease-in-out"
-         (click)="addStep()"
-         title="Adicionar novo step"
-      >
-         <ng-icon
-            class="" 
-            name="ionAdd"
-            [color]="'#d897f3'"
-            size="1.2rem"
-         ></ng-icon>
-      </button>
-   </header>
+<ng-container>
+  <header class="flex justify-between my-4" [formGroup]="formGroup">
+    <input
+      myAutofocus
+      [disabled]="true"
+      formControlName="taskTitle"
+      (keyup.enter)="addStep()"
+      type="text"
+      style="border: none; outline: none"
+      placeholder="Título"
+      class="text-slate-50 w-3/4 text-xl bg-transparent pl-1 py-2"
+    />
+    <button
+      *ngIf="steps.controls.length > 1"
+      class="bg-zinc-600 bg-opacity-20 flex justify-center items-center rounded w-12 h-8 active:scale-90 transition duration-150 ease-in-out"
+      (click)="addStep()"
+      title="Adicionar novo step"
+    >
+      <ng-icon
+        class=""
+        name="ionAdd"
+        [color]="'#ECECEC'"
+        size="1.2rem"
+      ></ng-icon>
+    </button>
+  </header>
 </ng-container>
 
 <ng-container *ngIf="steps.controls.length > 0" [formGroup]="formGroup">
-   <section class="flex flex-col gap-3">
-      <ng-container formArrayName="steps">
-         <div 
-            *ngFor="let stepForm of steps.controls; let i = index" 
-            class="ease-in duration-700 w-full bg-zinc-700 hover:bg-zinc-600 hover:bg-opacity-20 bg-opacity-20 h-16 rounded
-            px-4 flex items-center"
-         >
-            <div class="flex gap-3 w-4/5" [formGroupName]="i">
-               <ng-icon
-                  class="cursor-pointer hover:scale-110 active:scale-90 transition duration-150 ease-in-out" 
-                  [name]="stepForm.get('done')?.value ? 'ionCheckbox' : 'ionSquareOutline'"
-                  [color]="'#d897f3'"
-                  size="1.5rem"
-                  (click)="switch(i)"
-               ></ng-icon>
-               <input 
-                  myAutofocus
-                  (keyup.enter)="addStep()"
-                  (keydown)="onInputKeyDown($event, i)"
-                  formControlName="title"
-                  [placeholder]="'Etapa '+ (i + 1)"
-                  type="text" 
-                  style="border: none; outline: none; background-color: transparent; caret-color: #d897f3; font-weight: 200;" 
-                  class="text-slate-50 w-full"
-               >
-            </div>
+  <section class="flex flex-col gap-3">
+    <ng-container formArrayName="steps">
+      <div
+        *ngFor="let stepForm of steps.controls; let i = index"
+        class="ease-in duration-700 w-full bg-zinc-700 hover:bg-zinc-600 hover:bg-opacity-20 bg-opacity-20 h-16 rounded px-4 flex items-center"
+      >
+        <div class="flex gap-3 w-4/5" [formGroupName]="i">
+          <ng-icon
+            class="cursor-pointer hover:scale-110 active:scale-90 transition duration-150 ease-in-out"
+            [name]="
+              stepForm.get('done')?.value ? 'ionCheckbox' : 'ionSquareOutline'
+            "
+            [color]="'#2676ED'"
+            size="1.5rem"
+            (click)="switch(i)"
+          ></ng-icon>
+          <input
+            myAutofocus
+            (keyup.enter)="addStep()"
+            (keydown)="onInputKeyDown($event, i)"
+            formControlName="title"
+            [placeholder]="'Etapa ' + (i + 1)"
+            type="text"
+            style="
+              border: none;
+              outline: none;
+              background-color: transparent;
+              font-weight: 200;
+            "
+            class="text-slate-50 w-full"
+          />
+        </div>
 
-            <div class="flex justify-end w-1/5 px-7">
-               <ng-icon
-                  *ngIf="steps.controls.length > 1"
-                  class="cursor-pointer hover:scale-110 active:scale-90 transition duration-150 ease-in-out" 
-                  [name]="'ionTrashOutline'"
-                  [color]="'#d897f3'"
-                  size="1.3rem"
-                  (click)="removeStep(i)"
-               ></ng-icon>
-            </div>
-         </div>
-      </ng-container>
-   </section>
+        <div class="flex justify-end w-1/5 px-7">
+          <ng-icon
+            *ngIf="steps.controls.length > 1"
+            class="cursor-pointer hover:scale-110 active:scale-90 transition duration-150 ease-in-out"
+            [name]="'ionTrashOutline'"
+            [color]="'#2676ED'"
+            size="1.3rem"
+            (click)="removeStep(i)"
+          ></ng-icon>
+        </div>
+      </div>
+    </ng-container>
+  </section>
 </ng-container>
